@@ -2,23 +2,25 @@
 
 This project gets book data from the Gutendex API.
 
-I used the first 5 pages of the API.
+The first 5 pages of the API are extracted.
 
-The data is cleaned and saved in a SQLite database.
+The data is transformed and saved in a SQLite database.
+
+The project is divided into separate modules for extraction, transformation, database operations, and reports.
 
 ## Saved Book Data
 
 The `books` table contains:
 
-- id
-- title
-- media_type
-- download_count
+* id
+* title
+* media_type
+* download_count
 
 The `category` table contains:
 
-- book_id
-- category
+* book_id
+* category
 
 ## SQL Reports
 
@@ -33,7 +35,24 @@ The project includes these reports:
 The SQL queries are in:
 
 ```text
-sql/reports.sql
+sql/reports/
+```
+
+## Data Visualization
+
+The notebook includes two charts:
+
+1. Most downloaded books
+2. Top 10 categories by number of books
+
+## Project Files
+
+```text
+main.py
+src/extract.py
+src/transform.py
+src/database.py
+src/reports.py
 ```
 
 ## Run the Project
@@ -44,10 +63,14 @@ Install the packages:
 pip install -r requirements.txt
 ```
 
-Open the notebook:
+Run the ETL pipeline:
+
+```bash
+python main.py
+```
+
+The original notebook, including the charts, is available in:
 
 ```text
 Gutendex.ipynb
 ```
-
-Run all cells from top to bottom.
